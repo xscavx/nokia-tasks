@@ -1,25 +1,22 @@
 #include <gtest/gtest.h>
-
 #include <limits>
-#include <first-n-primes.hpp>
+#include "first-n-primes.hpp"
 
+namespace testing {
 
-class TestPrimes : public ::testing::Test {
- public:
-  TestPrimes() { /* init protected members here */
-  }
+class TestPrimes : public Test {
+  public:
+    TestPrimes() { /* init protected members here */
+    }
 
-  void SetUp() { /* do nothing */
-  }
+    void SetUp() { /* do nothing */
+    }
 
-  void TearDown() { /* do nothing */
-  }
+    void TearDown() { /* do nothing */
+    }
 
-  ~TestPrimes() { /* free protected members here */
-  }
-
- protected:
-  /* none */
+    ~TestPrimes() { /* free protected members here */
+    }
 };
 
 GTEST_TEST(TestPrimes, Simpliest)
@@ -40,7 +37,7 @@ GTEST_TEST(TestPrimes, Harder)
 
 GTEST_TEST(TestPrimes, NumericLimits)
 {
-  constexpr std::size_t max_size = 10000;
+  constexpr std::size_t max_size = 100000;
   using ELEMTYPE = int;
   using MaxSizedArray = std::array<ELEMTYPE, max_size>;
   auto array_ptr = std::make_unique<MaxSizedArray>();
@@ -50,7 +47,4 @@ GTEST_TEST(TestPrimes, NumericLimits)
   ASSERT_GT(array[max_size - 1], 0);
 }
 
-int main(int argc, char** argv) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
 }
