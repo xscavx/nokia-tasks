@@ -1,0 +1,63 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"C_Cpp.default.intelliSenseMode": "clang-x64",
+		"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+		"cmake.preferredGenerators": [
+			"Ninja"
+		],
+		"C_Cpp.clang_format_sortIncludes": true,
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"build/": true
+		},
+		"files.watcherExclude": {
+			"**/.git/objects/**": true,
+			"**/.git/subtree-cache/**": true,
+			"**/node_modules/**": true,
+			"**/.hg/store/**": true,
+			"build/": true
+		},
+		"C_Cpp.autoAddFileAssociations": false,
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "[gdb] Launch",
+				"type": "cppdbg",
+				"request": "launch",
+				"program": "${command:cmake.launchTargetPath}",
+				"args": [],
+				"stopAtEntry": false,
+				"cwd": "${workspaceFolder}",
+				"externalConsole": false,
+				"MIMode": "gdb",
+				"setupCommands": [
+					{
+						"description": "Enable pretty-printing for gdb",
+						"text": "-enable-pretty-printing",
+						"ignoreFailures": true
+					}
+				]
+			}
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"hbenl.vscode-test-explorer",
+			"matepek.vscode-catch2-test-adapter",
+			"ms-vscode.cmake-tools",
+			"ms-vscode.cpptools",
+			"twxs.cmake"
+		]
+	},
+}
