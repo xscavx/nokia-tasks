@@ -1,10 +1,12 @@
 #include <gtest/gtest.h>
 
+#include <limits>
 #include <first-n-primes.hpp>
 
-class TestProtocol : public ::testing::Test {
+
+class TestPrimes : public ::testing::Test {
  public:
-  TestProtocol() { /* init protected members here */
+  TestPrimes() { /* init protected members here */
   }
 
   void SetUp() { /* do nothing */
@@ -13,20 +15,40 @@ class TestProtocol : public ::testing::Test {
   void TearDown() { /* do nothing */
   }
 
-  ~TestProtocol() { /* free protected members here */
+  ~TestPrimes() { /* free protected members here */
   }
 
  protected:
   /* none */
 };
 
-GTEST_TEST(TestProtocol, Simpliest)
+GTEST_TEST(TestPrimes, Simpliest)
 {
-  std::array<int, 1> array;
+  using ELEMTYPE = int;
+  std::array<ELEMTYPE, 1> array;
   fill_array_with_primes(array);
-  ASSERT_EQ(array.size(), 1);
+  ASSERT_EQ(array[0], 2);
 }
 
+GTEST_TEST(TestPrimes, Harder)
+{
+  using ELEMTYPE = int;
+  std::array<ELEMTYPE, 3> array;
+  fill_array_with_primes(array);
+  ASSERT_EQ(array[2], 5);
+}
+
+GTEST_TEST(TestPrimes, NumericLimits)
+{
+  constexpr std::size_t max_size = 10000;
+  using ELEMTYPE = int;
+  using MaxSizedArray = std::array<ELEMTYPE, max_size>;
+  auto array_ptr = std::make_unique<MaxSizedArray>();
+  MaxSizedArray & array = *array_ptr;
+
+  fill_array_with_primes(array);
+  ASSERT_GT(array[max_size - 1], 0);
+}
 
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
