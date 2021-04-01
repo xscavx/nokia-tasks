@@ -2,9 +2,8 @@
 #include <limits>
 #include "first-n-primes.hpp"
 
-namespace testing {
 
-class TestPrimes : public Test {
+class TestPrimes : public testing::Test {
   public:
     TestPrimes() { /* init protected members here */
     }
@@ -45,6 +44,4 @@ GTEST_TEST(TestPrimes, NumericLimits)
 
   fill_array_with_primes(array);
   ASSERT_GT(array[max_size - 1], 0);
-}
-
 }
