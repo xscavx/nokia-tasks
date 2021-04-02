@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 #include "words-counter.hpp"
-#include <string_view>
 
 
 class TestWordsCounter : public testing::Test {

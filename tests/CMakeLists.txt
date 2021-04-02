@@ -13,6 +13,9 @@ find_package(GTest REQUIRED)
 include_directories(
     ../task1-first-n-primes/include
     ../task2-words-counter/include
+    ../task3-list-pick-out/include
+    ../task4-bitwise-permutation/include
+    ../task5-tree-paths/include
     ${GTEST_INCLUDE_DIRS}
 )
 
@@ -21,12 +24,26 @@ set(
   ./init-tests.cpp
   ./task1-first-n-primes.cpp
   ./task2-words-counter.cpp
+  ./task3-list-pick-out.cpp
+  ./task4-bitwise-permutation.cpp
+  ./task5-tree-paths.cpp
 )
 
 add_executable(nokia-tasks-tests ${SOURCE_TEST})
 
-target_link_libraries(nokia-tasks-tests ${GTEST_LIBRARIES} words-counter first-n-primes)
+target_link_libraries(
+  nokia-tasks-tests
+  ${GTEST_LIBRARIES}
+  first-n-primes
+  words-counter
+  list-pick-out
+  bitwise-permutation
+  tree-paths
+)
 
 enable_testing()
 add_test(TestPrimes nokia-tasks-tests)
 add_test(TestWordsCounter nokia-tasks-tests)
+add_test(ListPickOut nokia-tasks-tests)
+add_test(BitwisePermutation nokia-tasks-tests)
+add_test(TreePaths nokia-tasks-tests)
