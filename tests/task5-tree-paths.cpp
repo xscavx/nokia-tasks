@@ -17,7 +17,6 @@ class TreePaths : public testing::Test {
     }
 };
 
-
 GTEST_TEST(TreePaths, Simpliest)
 {
   ASSERT_EQ(0, 0);

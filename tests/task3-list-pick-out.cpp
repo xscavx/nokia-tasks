@@ -17,8 +17,14 @@ class ListPickOut : public testing::Test {
     }
 };
 
-
-GTEST_TEST(ListPickOut, Simpliest)
-{
+GTEST_TEST(ListPickOut, Simpliest) {
+  List * last_node{};
+  for (int idx = 100; idx >= 1; --idx) {
+    List * node = new List;
+    node->payload = idx;
+    node->next = last_node;
+    last_node = node;
+  }
+  remove_every_nth(last_node, 5);
   ASSERT_EQ(0, 0);
 }

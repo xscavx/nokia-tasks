@@ -17,7 +17,6 @@ class BitwisePermutation : public testing::Test {
     }
 };
 
-
 GTEST_TEST(BitwisePermutation, Simpliest)
 {
   ASSERT_EQ(0, 0);
