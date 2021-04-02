@@ -36,7 +36,7 @@ GTEST_TEST(TestPrimes, Harder)
 
 GTEST_TEST(TestPrimes, NumericLimits)
 {
-  constexpr std::size_t max_size = 100000;
+  constexpr std::size_t max_size = 10000;
   using ELEMTYPE = int;
   using MaxSizedArray = std::array<ELEMTYPE, max_size>;
   auto array_ptr = std::make_unique<MaxSizedArray>();
