@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.20)
 
 project(nokia-tasks-tests)
 
@@ -9,7 +9,6 @@ if(NOT WIN32)
 endif()
 
 find_package(GTest REQUIRED)
-find_package(Threads REQUIRED)
 
 include_directories(
     ../task1-first-n-primes/include
@@ -26,7 +25,7 @@ set(
 
 add_executable(nokia-tasks-tests ${SOURCE_TEST})
 
-target_link_libraries(nokia-tasks-tests ${GTEST_LIBRARIES} Threads::Threads)
+target_link_libraries(nokia-tasks-tests ${GTEST_LIBRARIES} words-counter first-n-primes)
 
 enable_testing()
 add_test(TestPrimes nokia-tasks-tests)

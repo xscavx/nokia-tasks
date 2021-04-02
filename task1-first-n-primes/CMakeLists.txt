@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.20)
 project(first-n-primes)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
@@ -10,7 +10,7 @@ endif()
 set(SOURCE_LIB src/first-n-primes.cpp)
 add_library(
   first-n-primes
-  SHARED
+  STATIC
   ${SOURCE_LIB}
 )
 target_include_directories(first-n-primes PRIVATE include)

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.20)
 project(words-counter)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
@@ -10,7 +10,7 @@ endif()
 set(SOURCE_LIB src/words-counter.cpp)
 add_library(
   words-counter
-  SHARED
+  STATIC
   ${SOURCE_LIB}
 )
 target_include_directories(words-counter PRIVATE include)
