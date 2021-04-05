@@ -4,7 +4,7 @@
 
 
 template<typename ELEMTYPE, std::size_t SIZE>
-extern void fill_array_with_primes(std::array<ELEMTYPE, SIZE> & primes) {
+void fill_array_with_primes(std::array<ELEMTYPE, SIZE> & primes) {
   primes.fill(0);
 
   ELEMTYPE num = 1;

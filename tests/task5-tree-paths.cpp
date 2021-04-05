@@ -30,19 +30,21 @@ GTEST_TEST(TreePaths, Simpliest)
   TreeNode * cur = root->leftChild;
   cur->leftChild = alloc_node();
   cur->rightChild = alloc_node();
+
   cur = root->rightChild;
   cur->leftChild = alloc_node();
   cur->rightChild = alloc_node();
+
   cur = cur->rightChild;
   cur->leftChild = alloc_node();
-  auto paths = find_all_deepest_paths(root);
+  auto paths1 = find_all_deepest_paths(root);
 
   cur->rightChild = cur->leftChild;
   cur->leftChild = nullptr;
-  paths = find_all_deepest_paths(root);
+  auto paths2 = find_all_deepest_paths(root);
 
   cur->leftChild = alloc_node();
-  paths = find_all_deepest_paths(root);
+  auto paths3 = find_all_deepest_paths(root);
 
   ASSERT_EQ(0, 0);
 }
