@@ -4,7 +4,7 @@
 #include <string_view>
 
 
-std::wstring_view cut_last_word(std::wstring_view & text);
+std::wstring_view cut_last_word(std::wstring_view &text);
 
 template<std::size_t MAX_LENGTH>
 auto count_words_by_length(std::wstring_view text) {
