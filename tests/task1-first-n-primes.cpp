@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
+#include <first-n-primes.hpp>
 #include <limits>
-#include "first-n-primes.hpp"
 
 
 class TestPrimes : public testing::Test {
@@ -18,24 +18,21 @@ class TestPrimes : public testing::Test {
     }
 };
 
-GTEST_TEST(TestPrimes, Simpliest)
-{
+GTEST_TEST(TestPrimes, Simpliest) {
   using ELEMTYPE = int;
   std::array<ELEMTYPE, 1> array;
   fill_array_with_primes(array);
   ASSERT_EQ(array[0], 2);
 }
 
-GTEST_TEST(TestPrimes, Harder)
-{
+GTEST_TEST(TestPrimes, Harder) {
   using ELEMTYPE = int;
   std::array<ELEMTYPE, 3> array;
   fill_array_with_primes(array);
   ASSERT_EQ(array[2], 5);
 }
 
-GTEST_TEST(TestPrimes, NumericLimits)
-{
+GTEST_TEST(TestPrimes, NumericLimits) {
   constexpr std::size_t max_size = 10000;
   using ELEMTYPE = int;
   using MaxSizedArray = std::array<ELEMTYPE, max_size>;

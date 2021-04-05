@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
-#include "tree-paths.hpp"
+#include <tree-paths.hpp>
 #include <memory>
+
 
 class TreePaths : public testing::Test {
   public:
@@ -17,8 +18,7 @@ class TreePaths : public testing::Test {
     }
 };
 
-GTEST_TEST(TreePaths, Simpliest)
-{
+GTEST_TEST(TreePaths, Simpliest) {
   std::vector<std::unique_ptr<TreeNode>> allocated_nodes;
   auto alloc_node = [&allocated_nodes]() -> TreeNode * {
     return allocated_nodes.emplace_back(std::make_unique<TreeNode>()).get();

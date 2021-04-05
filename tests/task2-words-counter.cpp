@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "words-counter.hpp"
+#include <words-counter.hpp>
 
 
 class TestWordsCounter : public testing::Test {
@@ -17,15 +17,13 @@ class TestWordsCounter : public testing::Test {
     }
 };
 
-GTEST_TEST(TestWordsCounter, Simpliest)
-{
+GTEST_TEST(TestWordsCounter, Simpliest) {
   constexpr std::size_t MAX_WORD_LEN{ 10 };
   auto count_array = count_words_by_length<MAX_WORD_LEN>(L"FIVE words in this text");
   count_array = count_words_by_length<MAX_WORD_LEN>(L"1 2 3  4  1a 2a    3a");
   ASSERT_EQ(0, 0);
 }
 
-GTEST_TEST(TestWordsCounter, LongWords)
-{
+GTEST_TEST(TestWordsCounter, LongWords) {
   ASSERT_EQ(0, 0);
 }

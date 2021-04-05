@@ -1,9 +1,9 @@
-#include "bitwise-permutation.hpp"
+#include <bitwise-permutation.hpp>
 #include <bitset>
 
 
 using std::size_t, std::uint8_t, std::uint32_t;
-constexpr std::size_t INT32_BITS{32};
+static constexpr size_t INT32_BITS{32};
 
 std::pair<uint32_t, uint32_t> permutation_for_min_max(uint32_t source_number) {
   std::bitset<INT32_BITS> const source_bitset{source_number};

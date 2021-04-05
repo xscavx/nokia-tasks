@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "bitwise-permutation.hpp"
+#include <bitwise-permutation.hpp>
 
 
 class BitwisePermutation : public testing::Test {
@@ -17,8 +17,7 @@ class BitwisePermutation : public testing::Test {
     }
 };
 
-GTEST_TEST(BitwisePermutation, Simpliest)
-{
+GTEST_TEST(BitwisePermutation, Simpliest) {
   auto res = permutation_for_min_max(0b0);
   res = permutation_for_min_max(0b1);
   res = permutation_for_min_max(0b11);

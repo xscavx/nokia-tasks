@@ -5,19 +5,10 @@ project(nokia-tasks-tests)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fuse-ld=lld")
 if(NOT WIN32)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic-errors")
 endif()
 
 find_package(GTest REQUIRED)
-
-include_directories(
-    ../task1-first-n-primes/include
-    ../task2-words-counter/include
-    ../task3-list-pick-out/include
-    ../task4-bitwise-permutation/include
-    ../task5-tree-paths/include
-    ${GTEST_INCLUDE_DIRS}
-)
 
 set(
   SOURCE_TEST
@@ -39,6 +30,17 @@ target_link_libraries(
   list-pick-out
   bitwise-permutation
   tree-paths
+)
+
+target_include_directories(
+  nokia-tasks-tests
+  PRIVATE
+  ../task1-first-n-primes/include
+  ../task2-words-counter/include
+  ../task3-list-pick-out/include
+  ../task4-bitwise-permutation/include
+  ../task5-tree-paths/include
+  ${GTEST_INCLUDE_DIRS}
 )
 
 enable_testing()
