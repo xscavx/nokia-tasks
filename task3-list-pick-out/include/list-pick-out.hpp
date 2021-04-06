@@ -9,5 +9,6 @@ struct List {
   SomeDataType payload;
 };
 
-void remove_next(List *previous_node);
-void remove_every_nth(List *root, std::size_t n);
+List * remove_next_node(List *previous_node);
+List * prepend_node(List *list_root, List *new_node);
+List * remove_every_nth(List *list_root, std::size_t n);

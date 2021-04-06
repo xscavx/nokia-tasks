@@ -3,30 +3,35 @@
 #include <cstddef>
 
 
-void remove_next(List *previous_node) {
-  List *remove_node = previous_node->next;
-  if (remove_node) {
-    previous_node->next = remove_node->next;
-    remove_node->next = nullptr;
-    // TODO: return outside for deletion
-    delete remove_node;
+List * remove_next_node(List *previous_node) {
+  List *removed_node = previous_node->next;
+  if (removed_node) {
+    previous_node->next = removed_node->next;
   }
+  return removed_node;
 }
 
-void remove_every_nth(List *root, std::size_t n) {
+List * prepend_node(List *list_root, List *new_node) {
+  if (new_node) {
+    new_node->next = list_root;
+  }
+  return new_node;
+}
+
+List * remove_every_nth(List *list_root, std::size_t n) {
   assert(n > 1);
   std::size_t node_num{1};
-  List * current_node{root};
-
-  while (true) {
-    if (!current_node) {
-      break;
-    }
+  List *current_node{list_root}, *removed_list{nullptr};
+  while (current_node) {
     if (node_num + 1 >= n) {
-      remove_next(current_node);
+      List *removed_node = remove_next_node(current_node);
+      // Reattach removed nodes to new list.
+      // Let client choose how to free allocated memory
+      removed_list = prepend_node(removed_list, removed_node);
       node_num = 0;
     }
     current_node = current_node->next;
     ++node_num;
   }
+  return removed_list;
 }
