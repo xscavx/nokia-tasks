@@ -13,7 +13,9 @@ class ListPickOut : public testing::Test {
 };
 
 TEST_F(ListPickOut, Simpliest) {
-  static std::array const list_sizes{0, 1, 2, 3, 4, 5, 30, 31, 32, 33, 34, 35};
+  static std::array const list_sizes{0, 1, 2, 3, 4, 5,
+                                     30, 31, 32, 33, 34, 35,
+                                     200000, 200001, 200002, 200003, 200004, 200005};
   for (auto list_size : list_sizes) {
     List *source_list_root{nullptr};
     for (int idx = list_size; idx >= 1; --idx) {
@@ -22,10 +24,14 @@ TEST_F(ListPickOut, Simpliest) {
       node->next = source_list_root;
       source_list_root = node;
     }
-    List *removed_nodes_root = remove_every_nth(source_list_root, REMOVE_EVERY_NODE);
+    List *removed_nodes_root = remove_every_fifth(source_list_root);
     while (removed_nodes_root) {
       EXPECT_EQ(removed_nodes_root->payload % REMOVE_EVERY_NODE, 0);
       removed_nodes_root = removed_nodes_root->next;
+    }
+    while (source_list_root) {
+      EXPECT_NE(source_list_root->payload % REMOVE_EVERY_NODE, 0);
+      source_list_root = source_list_root->next;
     }
   }
 }

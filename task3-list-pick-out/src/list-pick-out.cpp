@@ -35,3 +35,8 @@ List * remove_every_nth(List *list_root, std::size_t n) {
   }
   return removed_list;
 }
+
+List * remove_every_fifth(List *list_root) {
+  static constexpr std::size_t FIFTH{5};
+  return remove_every_nth(list_root, FIFTH);
+}
