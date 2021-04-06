@@ -4,18 +4,6 @@
 
 
 class TestPrimes : public testing::Test {
-  public:
-    TestPrimes() { /* init protected members here */
-    }
-
-    void SetUp() { /* do nothing */
-    }
-
-    void TearDown() { /* do nothing */
-    }
-
-    ~TestPrimes() { /* free protected members here */
-    }
 };
 
 TEST(TestPrimes, Simpliest) {

@@ -3,18 +3,6 @@
 
 
 class BitwisePermutation : public testing::Test {
-  public:
-    BitwisePermutation() { /* init protected members here */
-    }
-
-    void SetUp() { /* do nothing */
-    }
-
-    void TearDown() { /* do nothing */
-    }
-
-    ~BitwisePermutation() { /* free protected members here */
-    }
 };
 
 TEST(BitwisePermutation, Simpliest) {

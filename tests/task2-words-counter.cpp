@@ -3,18 +3,6 @@
 
 
 class TestWordsCounter : public testing::Test {
-  public:
-    TestWordsCounter() { /* init protected members here */
-    }
-
-    void SetUp() { /* do nothing */
-    }
-
-    void TearDown() { /* do nothing */
-    }
-
-    ~TestWordsCounter() { /* free protected members here */
-    }
 };
 
 TEST(TestWordsCounter, Simpliest) {
