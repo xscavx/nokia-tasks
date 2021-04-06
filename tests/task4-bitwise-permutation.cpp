@@ -17,10 +17,10 @@ class BitwisePermutation : public testing::Test {
     }
 };
 
-GTEST_TEST(BitwisePermutation, Simpliest) {
+TEST(BitwisePermutation, Simpliest) {
   auto res = permutation_for_min_max(0b0);
   res = permutation_for_min_max(0b1);
   res = permutation_for_min_max(0b11);
   res = permutation_for_min_max(0b1111111111);
-  ASSERT_EQ(0, 0);
+  EXPECT_EQ(0, 0);
 }
